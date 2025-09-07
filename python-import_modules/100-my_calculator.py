@@ -13,10 +13,10 @@ if __name__ == "__main__":
         exit(1)
     if operator == "+":
         result = add(a, b)
-    if operator == "-":
+    elif operator == "-":
         result = sub(a, b)
-    if operator == "*":
-        result = div(a, b)
-    if operator == "/":
+    elif operator == "*":
         result = mul(a, b)
+    elif operator == "/":
+        result = div(a, b)
     print(f"{a} {operator} {b} = {result}")
