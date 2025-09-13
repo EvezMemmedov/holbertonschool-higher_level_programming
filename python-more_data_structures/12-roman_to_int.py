@@ -8,9 +8,9 @@ def roman_to_int(roman_string):
     total = 0
 
     for idx in range(len(roman_string)):
-        value = values[roman_string[idx]]   # ayrı dəyişən
+        value = values[roman_string[idx]]
         if (idx + 1 < len(roman_string)
-        and value < values[roman_string[idx + 1]]):
+                and value < values[roman_string[idx + 1]]):
             total -= value
         else:
             total += value
