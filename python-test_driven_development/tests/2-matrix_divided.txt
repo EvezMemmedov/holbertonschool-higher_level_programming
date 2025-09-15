@@ -1,30 +1,113 @@
->>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Test normal case with integers
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 2)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+
+Test normal case with floats
+>>> matrix = [[1.5, 2.7, 3.1], [4.2, 5.8, 6.9]]
+>>> matrix_divided(matrix, 2)
+[[0.75, 1.35, 1.55], [2.1, 2.9, 3.45]]
+
+Test division by float
+>>> matrix = [[10, 20, 30], [40, 50, 60]]
+>>> matrix_divided(matrix, 2.5)
+[[4.0, 8.0, 12.0], [16.0, 20.0, 24.0]]
+
+Test rounding to 2 decimal places
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
 >>> matrix_divided(matrix, 3)
 [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
->>> matrix  # original matrix should not be modified
-[[1, 2, 3], [4, 5, 6]]
->>> matrix_divided([[1, 2], [3, 4]], 2.0)
-[[0.5, 1.0], [1.5, 2.0]]
->>> matrix_divided([[1, 2], [3, 4]], -2)
-[[-0.5, -1.0], [-1.5, -2.0]]
+
+Test matrix is not a list
 >>> matrix_divided("not a matrix", 2)
 Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
->>> matrix_divided([[1, 2], [3, "4"]], 2)
+
+Test matrix contains non-list elements
+>>> matrix_divided([1, 2, 3], 2)
 Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
->>> matrix_divided([[1, 2], [3, 4, 5]], 2)
+
+Test matrix contains non-numeric elements
+>>> matrix = [[1, 2, 3], [4, "5", 6]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test rows have different sizes
+>>> matrix = [[1, 2, 3], [4, 5]]
+>>> matrix_divided(matrix, 2)
 Traceback (most recent call last):
     ...
 TypeError: Each row of the matrix must have the same size
->>> matrix_divided([[1, 2], [3, 4]], "2")
+
+Test div is not a number
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, "2")
 Traceback (most recent call last):
     ...
 TypeError: div must be a number
->>> matrix_divided([[1, 2], [3, 4]], 0)
+
+Test division by zero
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 0)
 Traceback (most recent call last):
     ...
 ZeroDivisionError: division by zero
+
+Test empty matrix
+>>> matrix = []
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test matrix with empty rows
+>>> matrix = [[], []]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test single row matrix
+>>> matrix = [[1, 2, 3]]
+>>> matrix_divided(matrix, 2)
+[[0.5, 1.0, 1.5]]
+
+Test single element matrix
+>>> matrix = [[5]]
+>>> matrix_divided(matrix, 2)
+[[2.5]]
+
+Test negative numbers
+>>> matrix = [[-1, -2, -3], [-4, -5, -6]]
+>>> matrix_divided(matrix, 2)
+[[-0.5, -1.0, -1.5], [-2.0, -2.5, -3.0]]
+
+Test mixed positive and negative numbers
+>>> matrix = [[-1, 2, -3], [4, -5, 6]]
+>>> matrix_divided(matrix, 2)
+[[-0.5, 1.0, -1.5], [2.0, -2.5, 3.0]]
+
+Test large numbers
+>>> matrix = [[1000, 2000, 3000], [4000, 5000, 6000]]
+>>> matrix_divided(matrix, 1000)
+[[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+Test division by 1 (identity operation)
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 1)
+[[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+Test original matrix is not modified
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> result = matrix_divided(matrix, 2)
+>>> matrix
+[[1, 2, 3], [4, 5, 6]]
+>>> result
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
