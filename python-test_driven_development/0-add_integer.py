@@ -14,7 +14,7 @@ def add_integer(a, b=98):
         typeError if a or b not integer
     """
     if not isinstance(a, (int, float)):
-        raise TypeErro("a must be integer")
+        raise TypeErro("a must be an integer")
     if not isinstance(b, (int, float)):
-        raise TypeError("b must be integer")
+        raise TypeError("b must be an integer")
     return int(a) + int(b)
