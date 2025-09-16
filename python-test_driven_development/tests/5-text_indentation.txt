@@ -1,0 +1,36 @@
+text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test normal text
+text_indentation("Hello. How are you? I am fine: thanks.")
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+I am fine:
+<BLANKLINE>
+thanks.
+
+# Test another text
+text_indentation("This is a test. Another test? Yes: Indeed.")
+This is a test.
+<BLANKLINE>
+Another test?
+<BLANKLINE>
+Yes:
+<BLANKLINE>
+Indeed.
+
+# Test text without special characters
+text_indentation("No special characters here")
+No special characters here
+
+# Test type errors
+text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+text_indentation(["list", "of", "strings"])
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
