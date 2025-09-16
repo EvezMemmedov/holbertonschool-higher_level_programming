@@ -1,16 +1,18 @@
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 >>> text_indentation("Hello. How are you?")
 Hello.
-
+<BLANKLINE>
 How are you?
-
+<BLANKLINE>
 >>> text_indentation("This is a test. Another test? Yes: Indeed.")
 This is a test.
-
+<BLANKLINE>
 Another test?
+<BLANKLINE>
 Yes:
+<BLANKLINE>
 Indeed.
-
+<BLANKLINE>
 >>> text_indentation("No special characters here")
 No special characters here
 
