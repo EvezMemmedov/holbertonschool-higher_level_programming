@@ -13,7 +13,7 @@ class Square:
     def __init__(self, size=0):
         """Initialize a new Square with optional size."""
         self.size = size
-    
+
     @property
     def size(self):
         """
