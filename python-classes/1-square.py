@@ -2,6 +2,8 @@
 """
 This module defien a squere class
 """
+
+
 class Square:
     """
     Represents a square.
