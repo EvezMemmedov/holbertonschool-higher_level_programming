@@ -11,7 +11,6 @@ class Rectangle:
         self.height = height
 
     @property
-
     def width(self):
         """getter for width"""
         return self.__width
@@ -26,7 +25,6 @@ class Rectangle:
         self.__width = value
 
     @property
-
     def height(self):
         """getter for height"""
         return self.__height
