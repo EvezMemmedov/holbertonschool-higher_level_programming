@@ -46,10 +46,10 @@ class Rectangle:
             return 0
         return 2 * (self.width + self.height)
 
-    if self.width == 0 or self.height == 0:
-        print()
-    else:
-        for _ in range(self.area):
-            print(str("#" * self.area))
-        for _ in range(self.perimeter):
-            print(str("#" * self.perimeter))
+    def __str__(self):
+        if self.width == 0 or self.height == 0:
+            return ""
+        a = ""
+        for _ in range(self.height):
+            a += "#" * self.width + "\n"
+        return a.rstrip()
