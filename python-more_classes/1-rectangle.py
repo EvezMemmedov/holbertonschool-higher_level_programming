@@ -9,7 +9,9 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
+
     @property
+
     def width(self):
         """getter for width"""
         return self.__width
@@ -22,7 +24,9 @@ class Rectangle:
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
+
     @property
+
     def height(self):
         """getter for height"""
         return self.__height
