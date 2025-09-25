@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+"""
+this module retur true or false
+"""
+
+
+def is_kind_of_class(obj, a_class):
+        """
+    that return type
+
+    Prototype:def is_same_class(obj, a_class):
+    """
+    if type(obj) not a_class:
+        return True
+    else:
+        return False
