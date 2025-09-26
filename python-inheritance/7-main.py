@@ -3,9 +3,11 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 bg = BaseGeometry()
 
+# Düzgün integer dəyərlər
 bg.integer_validator("my_int", 12)
 bg.integer_validator("width", 89)
 
+# Yanlış dəyərlər üçün test
 try:
     bg.integer_validator("name", "John")
 except Exception as e:
