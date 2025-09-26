@@ -2,32 +2,14 @@
 """
 This module defines the BaseGeometry class
 """
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
-class BaseGeometry:
+class Rectangle:
     """
-    Base class for geometry objects
+    Rectangle class that inherits from BaseGeometry
+    Width and height are positive integers validated by integer_validator
     """
-
-    def area(self):
-        """
-        Raises an exception because area is not implemented
-        """
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """
-        Validates that value is an integer greater than 0
-
-        Args:
-            name (str): name of the parameter
-            value (int): value to validate
-        """
-        if type(value) is not int:
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
-
     def __init__(self, width, height):
         """Initializer of rectangle
 
