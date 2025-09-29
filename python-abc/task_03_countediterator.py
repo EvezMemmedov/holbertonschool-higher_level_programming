@@ -9,14 +9,35 @@ class CountedIterator:
     def get_count(self):
         return self.count
 
-if __name__ == "__main__":
-    data = [1, 2, 3, 4]
-    counted_iter = CountedIterator(data)
+#!/usr/bin/python3
 
+from task_03_countediterator import CountedIterator
+
+def test_counted_iterator():
+    data = [10, 20, 30]
+    iterator = CountedIterator(data)
+
+    # İlk element
+    assert next(iterator) == 10, "Incorrect item received from iterator"
+    assert iterator.get_count() == 1, "Count should be 1 after first next()"
+
+    # İkinci element
+    assert next(iterator) == 20, "Incorrect item received from iterator"
+    assert iterator.get_count() == 2, "Count should be 2 after second next()"
+
+    # Üçüncü element
+    assert next(iterator) == 30, "Incorrect item received from iterator"
+    assert iterator.get_count() == 3, "Count should be 3 after third next()"
+
+    # İterator bitdiyi üçün StopIteration
     try:
-        while True:
-            item = next(counted_iter)
-            print(f"Got {item}, total {counted_iter.get_count()} items iterated.")
+        next(iterator)
+        assert False, "Expected StopIteration exception"
     except StopIteration:
-        print("No more items.")
+        pass  # düzgün işləyir
+
+    print("All CountedIterator tests passed!")
+
+if __name__ == "__main__":
+    test_counted_iterator()
 
