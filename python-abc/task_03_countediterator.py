@@ -5,7 +5,7 @@ class CountedIterator:
         self.count = 0
     def __next__(self):
         self.count += 1
-        return next(self,iterator)
+        return next(self.iterator)
     def get_count(self):
         return self.count
 
@@ -19,3 +19,4 @@ if __name__ == "__main__":
             print(f"Got {item}, total {counted_iter.get_count()} items iterated.")
     except StopIteration:
         print("No more items.")
+
