@@ -3,12 +3,15 @@
 
 
 class Student:
+    """Student class"""
     def __init__(self, first_name, last_name, age):
+        """that is Student class"""
         self.first_naem = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
+        """that retrieves a dictionary representation of a Student instance"""
         if type(attrs) is list:
             filtered = {}
             for i in attrs:
