@@ -12,11 +12,11 @@ class Student:
 
     def to_json(self, attrs=None):
         """that retrieves a dictionary representation of a Student instance"""
-        if type(attrs) is list:
+        if isinstance(attrs, list):
             filtered = {}
             for i in attrs:
                 if i in self.__dict__:
                     filtered[i]= self.__dict__[i]
-                return filtered
+            return filtered
         else:
             return self.__dict__
