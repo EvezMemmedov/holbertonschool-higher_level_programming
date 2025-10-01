@@ -16,7 +16,7 @@ class Student:
             filtered = {}
             for i in attrs:
                 if i in self.__dict__:
-                    filtered(i) = self.__dict__[i]
+                    filtered[i]= self.__dict__[i]
                 return filtered
         else:
             return self.__dict__
