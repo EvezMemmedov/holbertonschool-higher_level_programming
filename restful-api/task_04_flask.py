@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 
 app = Flask(__name__)
-
+users = {}
 @app.route('/')
 def home():
     return "Welcome to the Flask API!"
@@ -13,7 +13,7 @@ def data():
 
 @app.route('/users/<username>')
 def get_user(username):
-    if username is users:
+    if username in users:
         return jsonify(users[username])
     else:
         return jsonify({"error", "User not found"}), 404
