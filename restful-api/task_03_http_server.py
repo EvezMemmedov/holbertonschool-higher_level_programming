@@ -12,13 +12,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
         elif self.path == '/data':
             self.send_response(200)
-            self.send_header('Content-type', 'aplication/json')
+            self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(b'{"name": "John", "age": 30, "city": "New York"}')
 
         elif self.path == '/info':
             self.send_response(200)
-            self.send_header('Content-type', 'aplication/json')
+            self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(b'{"version": "1.0", "description": "A simple API built with http.server"}')
 
