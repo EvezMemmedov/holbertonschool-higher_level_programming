@@ -1,3 +1,3 @@
 -- 2-remove database
 -- this script delete database
-DELETE DATABASE IF NOT EXISTS hbtn_0c_0;
+DROP DATABASE IF EXISTS hbtn_0c_0;
