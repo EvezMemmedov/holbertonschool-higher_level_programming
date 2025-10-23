@@ -1,3 +1,4 @@
 -- 8-count id = 89
 -- this script count id
-SHOW COUNT(id = 89);
+SELECT COUNT(*) FROM first_table;
+WHERE id = 89;
