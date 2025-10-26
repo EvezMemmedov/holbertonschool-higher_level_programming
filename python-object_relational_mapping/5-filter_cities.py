@@ -27,14 +27,15 @@ if __name__ == "__main__":
     )
 
     cur = db.cursor()
-    cur.execute("SELECT c.name FROM cities AS c\
+    query = ("SELECT c.name FROM cities AS c\
         LEFT JOIN states AS s ON c.state_id=s.id\
         WHERE BINARY s.name = %s\
-        ORDER BY c.id ASC", (argv[4]),)
+        ORDER BY c.id ASC")
+    cur.execute(query, (state_name))
     rows = cur.fetchall()
 
     for row in rows:
-        print(row)
+        print(row[0])
 
     cur.close()
     db.close()
