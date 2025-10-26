@@ -2,39 +2,29 @@
 
 
 """
-that takes in the name of a state as an argument
-and lists all cities of that state
+Select all cities of a state from database on localhost:3306
+Accepts username, password, database and keyword as argv
 """
 
 
+from sys import argv
 import MySQLdb
-import sys
 
 
 if __name__ == "__main__":
-    user = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state_name = sys.argv[4]
-
-    db = MySQLdb.connect(
+    conn = MySQLdb.connect(
         host="localhost",
-        port=3306,
-        user=user,
-        password=password,
-        db=database,
-        charset="utf8"
+        port=3306, user=argv[1], passwd=argv[2],
+        db=argv[3], charset="utf8"
     )
-
-    cur = db.cursor()
-    query = ("SELECT c.name FROM cities AS c\
-        LEFT JOIN states AS s ON c.state_id=s.id\
-        WHERE BINARY s.name = %s\
-        ORDER BY c.id ASC")
-    cur.execute(query, (state_name))
-    rows = cur.fetchall()
-
-    print(", ".join([row[0] for row in rows]))
-
+    cur = conn.cursor()
+    cur.execute(
+        """SELECT c.name FROM cities AS c
+        LEFT JOIN states AS s ON c.state_id=s.id
+        WHERE BINARY s.name = %s
+        ORDER BY c.id ASC""", (argv[4],)
+    )
+    query_rows = cur.fetchall()
+    print(", ".join([row[0] for row in query_rows]))
     cur.close()
-    db.close()
+    conn.close()
