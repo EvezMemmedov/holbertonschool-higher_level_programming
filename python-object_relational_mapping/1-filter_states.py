@@ -4,25 +4,21 @@
 Select all states starting with 'N' from database on localhost:3306
 Accepts username, password and database as argv
 """
-
-
+from sys import argv
 import MySQLdb
-import sys
 
-
-if __name__ == '__main__':
-    connct = MySQLdb.connect(
-        host='localhost',
-        port=3306,
-        user=sys.argv[1],
-        passwod=sys.argv[2],
-        db=sys.argv[3],
-        charset="utf8"
+if __name__ == "__main__":
+    conn = MySQLdb.connect(
+        host="localhost",
+        port=3306, user=argv[1], passwd=argv[2],
+        db=argv[3], charset="utf8"
     )
-    cur = connct.cursor()
-    cur.execute("SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC")
-    rows = cur.fetchall()
-    for row in rows:
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC"
+    )
+    query_rows = cur.fetchall()
+    for row in query_rows:
         print(row)
     cur.close()
-    connct.close()
+    conn.close()
