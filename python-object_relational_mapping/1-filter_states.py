@@ -1,9 +1,13 @@
 #!/usr/bin/python3
+
+
 """1-filter_states
 
 Select all states starting with 'N' from database on localhost:3306
 Accepts username, password and database as argv
 """
+
+
 from sys import argv
 import MySQLdb
 
