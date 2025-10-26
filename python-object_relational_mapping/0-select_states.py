@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-"""0-select_states
-
+"""
 Select all states from database on localhost:3306
 Accepts username, password and database as argv
 """
+
+
 from sys import argv
 import MySQLdb
+
 
 if __name__ == "__main__":
     conn = MySQLdb.connect(
