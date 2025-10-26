@@ -20,6 +20,7 @@ if __name__ == '__main__':
         charset="utf8"
     )
     cur = connct.cursor()
+
     cur.execute("SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC")
     rows = cur.fetchall()
     for row in rows:
