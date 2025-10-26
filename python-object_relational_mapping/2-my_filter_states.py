@@ -1,10 +1,14 @@
 #!/usr/bin/python3
+
+
 """
 2-my_filter_states
 
 Select all states from database on localhost:3306
 Accepts username, password and database as argv
 """
+
+
 from sys import argv
 import MySQLdb
 
