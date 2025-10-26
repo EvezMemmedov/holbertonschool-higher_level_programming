@@ -6,6 +6,7 @@ Takes in arguments and displays all values in the states table
 where name matches the given argument (safe from MySQL injection).
 """
 
+
 import MySQLdb
 import sys
 
