@@ -16,7 +16,7 @@ if __name__ == "__main__":
     dtabase = sys.argv[3]
 
     engine = create_engine(f'mysql+mysqldb://{user}:{password}\
-        @localhost:3306/{dtabase}')
+    @localhost:3306/{dtabase}')
 
     Base.metadata.create_all(engine)
 
