@@ -23,9 +23,9 @@ if __name__ == "__main__":
     Session = sessionmaker(engine)
     session = Session()
     states = (
-    session.query(State)
-    .filter(func.binary(State.name).like("%a%"))
-    .order_by(State.id).all()
+        session.query(State)
+        .filter(func.binary(State.name).like("%a%"))
+        .order_by(State.id).all()
     )
     for state in states:
         session.delete(state)
