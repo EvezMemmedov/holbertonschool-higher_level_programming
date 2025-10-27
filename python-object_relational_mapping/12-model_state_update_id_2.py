@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     state = (
         session.query(State)
-        .filter(State.id) == 2
+        .filter(State.id == 2)
         .one()
     )
     state.name = "New Mexico"
