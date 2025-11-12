@@ -5,5 +5,5 @@ if (argsCount == 0) {
 } else if (argsCount == 1) {
     console.log('Argument found');
 } else {
-    console.log ('Argument found');
+    console.log ('Arguments found');
 }
